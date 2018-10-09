@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.19.1">
+    <title>Identicon – identicon v0.1.0</title>
+    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
+    <script src="dist/sidebar_items-ad878f56f9.js"></script>
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+    <div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+identicon      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">identicon v0.1.0</small>
+Identicon              </h1>
+
+
+        <section id="moduledoc">
+<p>Identicon application for generating a random identicon based on user input string.
+Generates an image and saves it to current directory under <code class="inline">user_input.png</code></p>
+<p>Docs can be found under <strong>doc</strong> directory</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#build_grid/1">build_grid(image)</a>
+  </div>
+    <div class="summary-synopsis"><p>Builds a 5x5 grid based on <code class="inline">hex</code> array of 16 elements. Drops the last element, groups them by 3, mirrors and adds indexes.
+Sets output to <code class="inline">grid</code> property of <em>Identicon.Image</em> struct</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#build_pixel_map/1">build_pixel_map(image)</a>
+  </div>
+    <div class="summary-synopsis"><p>Builds an image sized 250x250 and coloring the squares based on <code class="inline">grid</code> property of the struct
+Sets output to <code class="inline">pixel_map</code> property of <em>Identicon.Image</em> struct</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#draw_image/1">draw_image(image)</a>
+  </div>
+    <div class="summary-synopsis"><p>Draws the image with given <code class="inline">color</code> and <code class="inline">pixel_map</code> properties using <code class="inline">egd</code> library from Erlang</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#filter_odd_squares/1">filter_odd_squares(image)</a>
+  </div>
+    <div class="summary-synopsis"><p>Filters out odd elements from the given grid, keeping only even numbered ones.
+Sets output to <code class="inline">grid</code> property of <em>Identicon.Image</em> struct</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#hash_input/1">hash_input(input)</a>
+  </div>
+    <div class="summary-synopsis"><p>Generates a list of lenght 16 consisting of md5 hashed string converted to binaries.
+Sets the output to <code class="inline">hex</code> property of <em>Identicon.Image</em> struct</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#main/1">main(input)</a>
+  </div>
+    <div class="summary-synopsis"><p>Main function of the application</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#mirror_row/1">mirror_row(row)</a>
+  </div>
+    <div class="summary-synopsis"><p>Generates a new center mirrored array from the given three element array by mirroring the first two elements as fourth and fifth</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pick_color/1">pick_color(image)</a>
+  </div>
+    <div class="summary-synopsis"><p>Picks the first three element of the <code class="inline">hex</code> array as color codes for RGB values
+Sets the output to the <code class="inline">color</code> property of <em>Identicon.Image</em> struct</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#save_image/2">save_image(image, input)</a>
+  </div>
+    <div class="summary-synopsis"><p>Saves the given image under the <code class="inline">user_input.png</code> name</p>
+</div>
+</div>
+  </div>
+          
+        </section>
+
+
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+<div class="detail" id="build_grid/1">
+    <div class="detail-header">
+    <a href="#build_grid/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">build_grid(image)</span>
+          </div>
+  <section class="docstring">
+<p>Builds a 5x5 grid based on <code class="inline">hex</code> array of 16 elements. Drops the last element, groups them by 3, mirrors and adds indexes.
+Sets output to <code class="inline">grid</code> property of <em>Identicon.Image</em> struct</p>
+  </section>
+</div>
+<div class="detail" id="build_pixel_map/1">
+    <div class="detail-header">
+    <a href="#build_pixel_map/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">build_pixel_map(image)</span>
+          </div>
+  <section class="docstring">
+<p>Builds an image sized 250x250 and coloring the squares based on <code class="inline">grid</code> property of the struct
+Sets output to <code class="inline">pixel_map</code> property of <em>Identicon.Image</em> struct</p>
+  </section>
+</div>
+<div class="detail" id="draw_image/1">
+    <div class="detail-header">
+    <a href="#draw_image/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">draw_image(image)</span>
+          </div>
+  <section class="docstring">
+<p>Draws the image with given <code class="inline">color</code> and <code class="inline">pixel_map</code> properties using <code class="inline">egd</code> library from Erlang</p>
+  </section>
+</div>
+<div class="detail" id="filter_odd_squares/1">
+    <div class="detail-header">
+    <a href="#filter_odd_squares/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">filter_odd_squares(image)</span>
+          </div>
+  <section class="docstring">
+<p>Filters out odd elements from the given grid, keeping only even numbered ones.
+Sets output to <code class="inline">grid</code> property of <em>Identicon.Image</em> struct</p>
+  </section>
+</div>
+<div class="detail" id="hash_input/1">
+    <div class="detail-header">
+    <a href="#hash_input/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">hash_input(input)</span>
+          </div>
+  <section class="docstring">
+<p>Generates a list of lenght 16 consisting of md5 hashed string converted to binaries.
+Sets the output to <code class="inline">hex</code> property of <em>Identicon.Image</em> struct.</p>
+<h2 id="hash_input/1-examples" class="section-heading">
+  <a href="#hash_input/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Identicon</span><span class="o">.</span><span class="n">hash_input</span><span class="p" data-group-id="0337852490-1">(</span><span class="s">&quot;World&quot;</span><span class="p" data-group-id="0337852490-1">)</span><span class="w">
+</span><span class="p" data-group-id="0337852490-2">%</span><span class="nc" data-group-id="0337852490-2">Identicon.Image</span><span class="p" data-group-id="0337852490-2">{</span><span class="w">
+  </span><span class="ss">color</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+  </span><span class="ss">grid</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+  </span><span class="ss">hex</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0337852490-3">[</span><span class="mi">245</span><span class="p">,</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w"> </span><span class="mi">146</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w"> </span><span class="mi">98</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">154</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w"> </span><span class="mi">183</span><span class="p">,</span><span class="w">
+  </span><span class="mi">246</span><span class="p" data-group-id="0337852490-3">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">pixel_map</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="w">
+  </span><span class="p" data-group-id="0337852490-2">}</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="main/1">
+    <div class="detail-header">
+    <a href="#main/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">main(input)</span>
+          </div>
+  <section class="docstring">
+<p>Main function of the application</p>
+  </section>
+</div>
+<div class="detail" id="mirror_row/1">
+    <div class="detail-header">
+    <a href="#mirror_row/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">mirror_row(row)</span>
+          </div>
+  <section class="docstring">
+<p>Generates a new center mirrored array from the given three element array by mirroring the first two elements as fourth and fifth</p>
+<h2 id="mirror_row/1-examples" class="section-heading">
+  <a href="#mirror_row/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Identicon</span><span class="o">.</span><span class="n">mirror_row</span><span class="p" data-group-id="0772029149-1">(</span><span class="p" data-group-id="0772029149-2">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p" data-group-id="0772029149-2">]</span><span class="p" data-group-id="0772029149-1">)</span><span class="w">
+</span><span class="p" data-group-id="0772029149-3">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="0772029149-3">]</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="pick_color/1">
+    <div class="detail-header">
+    <a href="#pick_color/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">pick_color(image)</span>
+          </div>
+  <section class="docstring">
+<p>Picks the first three element of the <code class="inline">hex</code> array as color codes for RGB values
+Sets the output to the <code class="inline">color</code> property of <em>Identicon.Image</em> struct</p>
+  </section>
+</div>
+<div class="detail" id="save_image/2">
+    <div class="detail-header">
+    <a href="#save_image/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">save_image(image, input)</span>
+          </div>
+  <section class="docstring">
+<p>Saves the given image under the <code class="inline">user_input.png</code> name</p>
+  </section>
+</div>
+        </section>
+
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-a0c90688fa.js"></script>
+  
+  </body>
+</html>
+

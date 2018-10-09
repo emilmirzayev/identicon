@@ -2,6 +2,8 @@ defmodule Identicon do
   @moduledoc """
   Identicon application for generating a random identicon based on user input string.
   Generates an image and saves it to current directory under `user_input.png`
+
+  Docs can be found under **doc** directory
   """
 
 
